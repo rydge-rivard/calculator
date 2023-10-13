@@ -1,6 +1,6 @@
-let x;
-let y;
-let operator;
+let x = 1;
+let y = 1;
+let operator = '';
 
 function add(x, y) {
     return x + y;
@@ -18,3 +18,14 @@ function divide(x, y) {
     return x / y;
 }
 
+function operate(x, y, operator) {
+    if (operator === '+') {
+        return add(x, y);
+    } else if (operator === '-') {
+        return subtract(x, y);
+    } else if (operator === '*') {
+        return multiply(x, y);
+    } else if (operator === '/') {
+        return divide(x, y);
+    }
+}
