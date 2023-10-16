@@ -59,11 +59,9 @@ btnOperator.forEach((singleOperator) => {
             displayDOM.textContent = Math.round(x * 100) / 100;
             displayNumbers = 0;
             y = undefined;
-            //operator = singleOperator.textContent;
         } else if (x === undefined) {
             x = y;
             displayNumbers = 0;
-            //operator = singleOperator.textContent;
         }
         operator = singleOperator.textContent;
     });
