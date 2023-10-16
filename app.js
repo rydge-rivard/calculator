@@ -69,7 +69,7 @@ btnOperator.forEach((singleOperator) => {
 
 const btnEquals = document.querySelector('.equals');
 btnEquals.addEventListener('click', () => {
-    if (x === undefined || y === undefined) {
+    if (x == undefined || y == undefined) {
         return;
     } else if (y == 0 && operator == '/') {
         displayDOM.textContent = 'No dividing by zero fool.';
