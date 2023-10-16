@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgb(161, 161, 161);
-    padding: 18px 18px;
+    padding: 24px 18px 18px;
     border-radius: 16px;
     width: 50vh;
     border-color: black;
@@ -40,12 +40,13 @@ button.clear:hover {
     font-size: 32px;
     border-radius: 8px;
     text-align: right;
-    padding: 12px;
+    padding: 20px;
     word-wrap: break-word;
     background-color: rgb(232, 232, 232);
     border-style: solid;
     border-color: black;
     border-width: 2px;
+    margin: 0 12px;
 }
 
 .middle {
@@ -54,9 +55,9 @@ button.clear:hover {
     padding: 12px 0;
 }
 button.clear {
-    margin: 0px;
     flex: 2 0 auto;
     background-color: rgb(243, 163, 163);
+    margin: 0 12px;
 }
 
 .operators {
