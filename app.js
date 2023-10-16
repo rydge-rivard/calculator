@@ -1,11 +1,9 @@
-let x = 0;
-let y = 0;
+let x;
+let y;
 let operator = '';
 let displayNumbers = 0;
 
 function add(x, y) {
-    console.log(typeof(x));
-    console.log(typeof(y));
     return +x + +y;
 } 
 
@@ -31,41 +29,66 @@ function operate(x, y, operator) {
     } else if (operator === '/') {
         displayNumbers = divide(x, y);
     }
-    return displayDOM.textContent = displayNumbers;
+    return displayNumbers;
 }
 
 const displayDOM = document.querySelector('.display');
 const btn = document.querySelectorAll('.number');
 btn.forEach((singleButton) => {
     singleButton.addEventListener('click', () => {
-        displayNumbers === 0 ? 
-        displayNumbers = singleButton.textContent : displayNumbers += singleButton.textContent;
-        displayDOM.textContent = displayNumbers;
+        if (singleButton.textContent === '.' && checkDecimal()) {
+            return displayNumbers;
+        } else {
+            displayNumbers === 0 ?
+            displayNumbers = singleButton.textContent : displayNumbers += singleButton.textContent;
+            displayDOM.textContent = displayNumbers;
+            y = displayNumbers;
+        }
     });
 });
+
+function checkDecimal() {
+    return displayNumbers.charAt(displayNumbers.length - 1) === '.';
+};
 
 const btnOperator = document.querySelectorAll('.operator');
 btnOperator.forEach((singleOperator) => {
     singleOperator.addEventListener('click', () => {
-        x = displayNumbers;
-        //x !== 0 ? y = displayNumbers : x = displayNumbers;
-        displayNumbers = 0;
+        if (x && y !== undefined) {
+            x = operate (x, y, operator);
+            displayDOM.textContent = Math.round(x * 100) / 100;
+            displayNumbers = 0;
+            y = undefined;
+            //operator = singleOperator.textContent;
+        } else if (x === undefined) {
+            x = y;
+            displayNumbers = 0;
+            //operator = singleOperator.textContent;
+        }
         operator = singleOperator.textContent;
-        //x && y !== 0 ? operate(x, y, operator) : console.log(operate(x, y, operator));
     });
 });
 
 const btnEquals = document.querySelector('.equals');
 btnEquals.addEventListener('click', () => {
-    x !== 0 ? y = displayNumbers: x = displayNumbers;
-    operate(x, y, operator);
+    if (x === undefined || y === undefined) {
+        return;
+    } else if (y == 0 && operator == '/') {
+        displayDOM.textContent = 'No dividing by zero fool.';
+        console.log(displayDOM.textContent);
+    } else {
+        x = operate(x, y, operator);
+        displayDOM.textContent = Math.round(x * 100) / 100;
+        y = undefined;
+        displayNumbers = 0;
+    }
 });
 
 const btnClear = document.querySelector('.clear');
 btnClear.addEventListener('click', () => {
     displayNumbers = 0;
     displayDOM.textContent = displayNumbers;
-    x = 0;
-    y = 0;
+    x = undefined;
+    y = undefined;
     operator = '';
 });
