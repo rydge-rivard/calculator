@@ -90,3 +90,10 @@ btnClear.addEventListener('click', () => {
     y = undefined;
     operator = '';
 });
+
+const btnDelete = document.querySelector('.delete');
+btnDelete.addEventListener('click', () => {
+            displayNumbers = displayNumbers.slice(0, (displayNumbers.length - 1));
+            displayDOM.textContent = displayNumbers;
+            y = displayNumbers;
+});
