@@ -48,7 +48,7 @@ btn.forEach((singleButton) => {
 });
 
 function checkDecimal() {
-    return displayNumbers.charAt(displayNumbers.length - 1) === '.';
+    return displayNumbers.charAt(displayNumbers.indexOf('.')) === '.';
 };
 
 const btnOperator = document.querySelectorAll('.operator');
@@ -93,7 +93,7 @@ btnClear.addEventListener('click', () => {
 
 const btnDelete = document.querySelector('.delete');
 btnDelete.addEventListener('click', () => {
-            displayNumbers = displayNumbers.slice(0, (displayNumbers.length - 1));
-            displayDOM.textContent = displayNumbers;
-            y = displayNumbers;
+    displayNumbers = displayNumbers.slice(0, (displayNumbers.length - 1));
+    displayDOM.textContent = displayNumbers;
+    y = displayNumbers;
 });
