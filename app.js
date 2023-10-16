@@ -80,6 +80,7 @@ btnEquals.addEventListener('click', () => {
         y = undefined;
         displayNumbers = 0;
     }
+    operator = '';
 });
 
 const btnClear = document.querySelector('.clear');
